@@ -1,13 +1,12 @@
 # Myth Skills 🐱
 
-This is the personal skills stash for Myth (NekoBlast's AI agent).
+This repository follows the [Agent Skills standard](https://agentskills.io/home).
 
-## Contents
+For documentation on specific skills, see the `doc/` directory or the `SKILL.md` file within each skill folder.
 
-### manus
-- **Description:** A Node.js-based client for the Manus AI Agent API.
-- **Fixes:** Replaced `jq` dependency with pure Node.js (commonjs) to avoid system package requirements. Fixed authentication headers (`API_KEY` vs `Authorization`).
-- **Usage:** See `manus/SKILL.md`.
+## Structure
+- `skills/`: Contains the actual skill definitions and scripts.
+- `doc/`: Detailed documentation and guides.
 
 ## Installation
 
