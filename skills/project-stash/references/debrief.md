@@ -10,7 +10,7 @@ Output from the JSON result:
 - Current CST date, time, and weekday
 - Day status (`work_normal`, `work_buban`, `rest_normal`, `rest_holiday`)
 - `next_workday` (only on rest days)
-- `next_holiday_block` (name, start, end)
+- `next_holiday_block` (holiday name, start, end)
 - `upcoming_buban` (list of upcoming compensatory workdays)
 
 Add a brief greeting appropriate to the day.
@@ -51,4 +51,5 @@ Confirm the snapshot was saved.
 
 - The reply **IS** the debrief -- output the full text directly.
 - Do not summarize. Do not output a file path.
+- Format for discord: No empty lines
 - The reply will be delivered directly to the channel.
