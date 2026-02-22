@@ -10,7 +10,7 @@ Output (JSON):
         "date": "2026-02-21",
         "weekday": "Saturday",
         "status": "rest_normal",           # work_normal | work_buban | rest_normal | rest_holiday
-        "label": "Saturday",
+        "current_holiday_name": null,      # null unless part of a named holiday block
         "next_workday": "2026-02-24",      # only present on rest days
         "next_holiday_block": {
             "start": "2026-04-06",
@@ -25,8 +25,8 @@ Output (JSON):
 Status definitions:
     work_normal  - regular weekday
     work_buban   - compensatory workday falling on a weekend (补班)
-    rest_normal  - regular weekend
-    rest_holiday - public holiday (weekday overridden, or holiday weekend)
+    rest_normal  - regular weekend or unnamed rest day
+    rest_holiday - part of a named holiday block (includes compensatory rest days)
 
 Dependencies:
     pip install chinesecalendar --user --break-system-packages
