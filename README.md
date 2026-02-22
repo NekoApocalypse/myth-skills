@@ -15,3 +15,7 @@ Clone this repository into your OpenClaw skills directory:
 ```bash
 git clone https://github.com/NekoApocalypse/myth-skills.git /app/skills/myth
 ```
+
+## References
+
+- [Anthropic Skill Creator Skill](https://github.com/anthropics/skills/tree/main/skills/skill-creator)
