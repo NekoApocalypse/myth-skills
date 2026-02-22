@@ -41,13 +41,17 @@ When a project is finished:
    - Replace spaces in project name with underscores
    - Include: what was accomplished, key decisions, lessons learned
 
-2. **Append to COMPLETED_LOG.md** (workspace root):
-   ```
-   date,project_name,archive_path
-   2026-02-22,Mem0 Trial,vault/myth-projects-stash/completed/2026-02-22_Mem0_Trial.md
-   ```
+2. **Append to `COMPLETED_LOG.md`** (workspace root):
+   - If the file does not exist yet, create it with the header line first:
+     ```
+     date,project_name,archive_path
+     ```
+   - Then append the completion entry (one line per project, no header repeat):
+     ```
+     2026-02-22,Mem0 Trial,vault/myth-projects-stash/completed/2026-02-22_Mem0_Trial.md
+     ```
 
-3. **Remove from PROJECTS.md** active section
+3. **Remove from `PROJECTS.md`** active section
 
 ---
 
