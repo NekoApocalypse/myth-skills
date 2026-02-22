@@ -1,9 +1,11 @@
 ---
 name: project-stash
 description: >
-  Manage the operator's active project board, daily-report, and backup.
-  Use when the operator asks about their projects, wants to update project status or mark
-  a project completed, requests a status report or debrief.
+  Manage the operator's active project board, daily debriefs, and backups.
+  Use when the operator: asks about their projects or project status; wants to stash, add,
+  or record a new project idea; wants to update project status or progress; marks a project
+  as completed or wants to drop/abandon a project; requests a status report, momentum check,
+  or daily debrief; mentions PROJECTS.md or the project stash.
 ---
 
 # Project Stash
