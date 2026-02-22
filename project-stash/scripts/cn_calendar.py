@@ -158,7 +158,7 @@ def upcoming_buban(start: DayInfo) -> list[dict]:
 # ---------------------------------------------------------------------------
 
 def main():
-    now_utc = datetime.datetime.utcnow()
+    now_utc = datetime.datetime.now(datetime.timezone.utc)
     now_cst = now_utc + datetime.timedelta(hours=8)
 
     if len(sys.argv) > 1:

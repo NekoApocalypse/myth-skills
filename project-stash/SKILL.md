@@ -1,25 +1,43 @@
-# Project Stash Skill
+---
+name: project-stash
+description: >
+  Manage the operator's active project board, daily-report, and backup.
+  Use when the operator asks about their projects, wants to update project status or mark
+  a project completed, requests a status report or debrief.
+---
 
-This skill manages the Operator's Project Stash (GTD/buffer system) and daily debriefs.
+# Project Stash
 
-## File Locations
-- **Active Projects Board:** `/home/node/.openclaw/workspace/PROJECTS.md`
-- **Daily Snapshots Vault:** `/home/node/.openclaw/workspace/vault/myth-projects-stash/daily-snapshots/`
-- **Completed Projects Vault:** `/home/node/.openclaw/workspace/vault/myth-projects-stash/completed/`
-- **Chinese Calendar Script:** `/home/node/.openclaw/workspace/myth-skills/project-stash/cn_calendar.py`
+Manage the operator's active projects board, take daily snapshots, archive completed work, and run debriefs.
 
-## Conventions & Rules
+## Common Operations
 
-1. **Daily Snapshots:** 
-   - Naming convention: `{YYYY-MM-DD}_PROJECTS.md` (e.g., `2026-02-21_PROJECTS.md`).
-   - Timezone for dates must always be `Asia/Shanghai` (CST).
+### Complete a Project
 
-2. **Completed Projects:**
-   - When a project is marked as done, it MUST be removed from `PROJECTS.md`.
-   - It MUST be archived into the Completed Projects Vault.
-   - Naming convention: `{YYYY-MM-DD}_{Project_Name}.md` (spaces replaced with underscores).
-   - The archived file should contain a brief summary of the completed work.
+1. Create an archive file in the completed vault with a brief summary of the work done.
+2. File naming: `{YYYY-MM-DD}_{Project_Name}.md` (spaces → underscores, date in CST).
+3. Remove the project entry from `PROJECTS.md`.
 
-## Prompts & Scripts
-- `debrief_prompt.md`: The exact prompt used by the daily cron jobs to generate the debrief.
-- `cn_calendar.py`: The script used to fetch Chinese holiday/workday data.
+### Add / Update a Project
+
+Edit `PROJECTS.md` directly. Follow the format in [assets/PROJECTS_TEMPLATE.md](assets/PROJECTS_TEMPLATE.md).
+
+### Report Status
+
+Read `PROJECTS.md` and summarize active projects. No snapshots, no backups -- read-only.
+
+## Debrief
+
+Full 6-step debrief procedure (calendar, projects, momentum, pep talk, ask, backup): see [references/debrief.md](references/debrief.md)
+
+## File Structure
+
+Paths, naming conventions, and directory layout: see [references/file_structure.md](references/file_structure.md).
+
+## Scripts
+
+**`scripts/cn_calendar.py`** -- Chinese calendar day classifier. Returns JSON with date, weekday, work/rest status, next workday, next holiday block, and upcoming 补班 days.
+
+```bash
+python3 scripts/cn_calendar.py [YYYY-MM-DD]   # defaults to today (CST)
+```
