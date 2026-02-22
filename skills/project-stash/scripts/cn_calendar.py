@@ -57,8 +57,8 @@ BUBAN_WINDOW_DAYS = 30
 class DayInfo:
     date: datetime.date
     status: str          # work_normal | work_buban | rest_normal | rest_holiday
-    label: str           # weekday name or holiday name (as returned by library)
-    is_on_holiday_block: bool  # raw library flag — True for any day in a holiday block
+    weekday_name: str    # Monday, Tuesday, etc.
+    current_holiday_name: str | None  # None unless today is part of a named holiday block
 
 
 # ---------------------------------------------------------------------------
@@ -69,30 +69,33 @@ def get_day_info(d: datetime.date) -> DayInfo:
     """
     Classify a date using the chinesecalendar library.
 
-    Classification rules (is_workday() is ground truth):
+    Classification rules:
         is_workday + weekend              → work_buban   (补班)
         is_workday + weekday              → work_normal
-        not workday + weekday             → rest_holiday
-        not workday + weekend + on_block  → rest_holiday (holiday extends into weekend)
-        not workday + weekend + !on_block → rest_normal
+        not workday + holiday_name        → rest_holiday (part of named holiday block)
+        not workday + no holiday_name     → rest_normal  (regular weekend)
+
+    Note: get_holiday_detail returns (is_holiday, holiday_name) where
+    holiday_name is set for ALL days in a holiday period (including
+    compensatory rest days), not just the core named day.
     """
     is_workday = cc.is_workday(d)
     is_weekend = d.weekday() >= 5
-    on_holiday_block, holiday_name = cc.get_holiday_detail(d)
+    _, holiday_name = cc.get_holiday_detail(d)
+
+    weekday_name = WEEKDAYS[d.weekday()]
 
     if is_workday and is_weekend:
-        status, label = "work_buban", "补班"
+        status, current_holiday = "work_buban", None
     elif is_workday:
-        status, label = "work_normal", WEEKDAYS[d.weekday()]
-    elif not is_weekend:
-        status, label = "rest_holiday", holiday_name or "Holiday"
-    elif on_holiday_block:
-        # Weekend that falls inside a named holiday block (e.g. Spring Festival)
-        status, label = "rest_holiday", holiday_name or "Holiday"
+        status, current_holiday = "work_normal", None
+    elif holiday_name:
+        status, current_holiday = "rest_holiday", holiday_name
     else:
-        status, label = "rest_normal", WEEKDAYS[d.weekday()]
+        status, current_holiday = "rest_normal", None
 
-    return DayInfo(date=d, status=status, label=label, is_on_holiday_block=on_holiday_block)
+    return DayInfo(date=d, status=status, weekday_name=weekday_name,
+                   current_holiday_name=current_holiday)
 
 
 # ---------------------------------------------------------------------------
@@ -111,12 +114,18 @@ def next_workday(start: DayInfo) -> str | None:
 
 def next_holiday_block(start: DayInfo) -> dict | None:
     """
-    Return the next contiguous rest_holiday block after start.
+    Return the next contiguous holiday block after start.
 
-    If start is within a holiday block (is_on_holiday_block=True), skip past it
-    first — scan begins from the day after the next workday.
+    A "holiday block" is a contiguous period where holiday_name is not None.
+    The library returns the holiday name for ALL days in the period (including
+    compensatory rest days), so we simply scan for consecutive days with a name.
+
+    If start is already in a holiday block (current_holiday_name is not None),
+    skip past it first — scan begins from the day after the next workday.
     """
-    if start.is_on_holiday_block:
+    # Determine where to start scanning
+    if start.current_holiday_name:
+        # Currently in a holiday block, skip to after next workday
         nw = next_workday(start)
         if nw is None:
             return None
@@ -126,20 +135,28 @@ def next_holiday_block(start: DayInfo) -> dict | None:
 
     block_start = None
     block_name = None
+
     for _ in range(SCOUT_MAX_DAYS):
         info = get_day_info(d)
-        if info.status == "rest_holiday":
+
+        # Check if this day has a holiday name (part of a named holiday block)
+        if info.current_holiday_name:
             if block_start is None:
                 block_start = d
-                block_name = info.label
+                block_name = info.current_holiday_name
         else:
+            # End of holiday block
             if block_start is not None:
                 return {
                     "start": block_start.isoformat(),
                     "end": (d - datetime.timedelta(days=1)).isoformat(),
                     "name": block_name,
                 }
+            # Reset and continue scanning
+            block_start = None
+
         d += datetime.timedelta(days=1)
+
     return None
 
 
@@ -176,9 +193,9 @@ def main():
         "time_utc": now_utc.strftime("%Y-%m-%d %H:%M UTC"),
         "time_cst": now_cst.strftime("%Y-%m-%d %H:%M CST"),
         "date": today.date.isoformat(),
-        "weekday": WEEKDAYS[today.date.weekday()],
+        "weekday": today.weekday_name,
         "status": today.status,
-        "label": today.label,
+        "current_holiday_name": today.current_holiday_name,
     }
 
     if today.status.startswith("rest_"):
