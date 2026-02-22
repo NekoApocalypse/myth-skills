@@ -1,25 +1,37 @@
+---
+name: project-stash
+description: Manage the Operator's Project Stash (GTD/buffer system) and daily debriefs. Trigger when the user mentions project management, PROJECTS.md, daily debriefs, momentum checks, completing or dropping projects, or when they need to record a project idea that was mentioned in small-talk.
+---
+
 # Project Stash Skill
 
-This skill manages the Operator's Project Stash (GTD/buffer system) and daily debriefs.
+## File Locations (Workspace Root: `/home/node/.openclaw/workspace/`)
 
-## File Locations
-- **Active Projects Board:** `/home/node/.openclaw/workspace/PROJECTS.md`
-- **Daily Snapshots Vault:** `/home/node/.openclaw/workspace/vault/myth-projects-stash/daily-snapshots/`
-- **Completed Projects Vault:** `/home/node/.openclaw/workspace/vault/myth-projects-stash/completed/`
-- **Chinese Calendar Script:** `/home/node/.openclaw/workspace/myth-skills/project-stash/cn_calendar.py`
+| File | Path |
+|------|------|
+| Active Projects Board | `PROJECTS.md` |
+| Completion Ledger | `COMPLETED_LOG.md` |
+| Daily Snapshots Vault | `vault/myth-projects-stash/daily-snapshots/` |
+| Completed Projects Vault | `vault/myth-projects-stash/completed/` |
 
-## Conventions & Rules
+## Core Operations
 
-1. **Daily Snapshots:** 
-   - Naming convention: `{YYYY-MM-DD}_PROJECTS.md` (e.g., `2026-02-21_PROJECTS.md`).
-   - Timezone for dates must always be `Asia/Shanghai` (CST).
+| Operation | Action |
+|-----------|--------|
+| **Stash** | Add project to `PROJECTS.md` with standard fields |
+| **Update** | Edit project entry in `PROJECTS.md` |
+| **Complete** | Archive to vault, append to `COMPLETED_LOG.md`, remove from active |
+| **Drop** | Remove from `PROJECTS.md` (no log entry) |
 
-2. **Completed Projects:**
-   - When a project is marked as done, it MUST be removed from `PROJECTS.md`.
-   - It MUST be archived into the Completed Projects Vault.
-   - Naming convention: `{YYYY-MM-DD}_{Project_Name}.md` (spaces replaced with underscores).
-   - The archived file should contain a brief summary of the completed work.
+## Scripts
 
-## Prompts & Scripts
-- `debrief_prompt.md`: The exact prompt used by the daily cron jobs to generate the debrief.
-- `cn_calendar.py`: The script used to fetch Chinese holiday/workday data.
+| Script | Purpose |
+|--------|---------|
+| `scripts/cn_calendar.py` | Chinese calendar classifier (JSON output) |
+| `scripts/snapshot.sh` | Daily snapshot of `PROJECTS.md` to vault |
+
+## When to Read Reference Files
+
+- **Adding/updating/completing/dropping projects** → `references/operations.md`
+- **Running or debugging debrief** → `references/debrief_protocol.md`
+- **File format questions** → `references/data_model.md`
