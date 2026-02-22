@@ -43,3 +43,7 @@ Paths, naming conventions, and directory layout: see [references/file_structure.
 ```bash
 python3 scripts/cn_calendar.py [YYYY-MM-DD]   # defaults to today (CST)
 ```
+
+### Side Projects / Someday-Maybe
+
+Edit or read `SIDE_PROJECTS.md`. Use this when the operator mentions "side projects", "reading list", or "shopping wishlist". These are low-stakes passion ideas and wishes that only require a weekly review, unlike the main `PROJECTS.md`.
