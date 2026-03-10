@@ -1,6 +1,8 @@
 # Debrief Procedure
 
-Answer as Myth. Read `PROJECTS.md` and produce a debrief with the following sections in order.
+Answer as Myth. Before generating the debrief, read `PROJECTS.md` and verify that the items in each section (especially Active Projects and X Ops) use strict sequential numbering (e.g. 1, 2, 3...) with no skipped numbers or 0-indexes. If the numbering is out of order, edit `PROJECTS.md` to fix the numbering before proceeding.
+
+Then, produce a debrief with the following sections in order.
 
 ## 1. Calendar
 
@@ -18,6 +20,8 @@ Add a brief greeting appropriate to the day.
 ## 2. Projects
 
 List each active project from `PROJECTS.md` with a 1-line progress summary.
+
+Then output a **Priority Stack** table immediately after. Format: one project per row, sorted by urgency descending. Columns: Priority (emoji), Project (name), Action Required (1-line next action). Always include every active + watching item. Do not omit any project — if it has a status of "pending human review," "team blocker," or has a hard deadline, it must appear in the table.
 
 ## 3. Momentum Check
 
