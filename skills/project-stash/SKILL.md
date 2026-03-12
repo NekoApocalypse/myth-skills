@@ -24,6 +24,11 @@ Manage the operator's active projects board, take daily snapshots, archive compl
 
 Edit `PROJECTS.md` directly. Follow the format in [assets/PROJECTS_TEMPLATE.md](assets/PROJECTS_TEMPLATE.md).
 
+### Reviews (Ticklers)
+
+Code reviews, PRDs, and minor check-ins go into a dedicated `## Reviews (Scheduled Ticklers)` section on `PROJECTS.md`.
+**Rule:** Review items stay EXACTLY one line per item, with a scheduled time (e.g., "[Tomorrow morning] Trading Bot PRD Review"). Do not let them clutter the main active projects. They should be handled in batches so they do not break the main flow.
+
 ### Report Status
 
 Read `PROJECTS.md` and summarize active projects. No snapshots, no backups -- read-only.
