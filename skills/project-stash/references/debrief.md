@@ -6,7 +6,7 @@ Then, produce a debrief with the following sections in order.
 
 ## 1. Calendar
 
-Run `python3 ~/.openclaw/workspace/myth-skills/project-stash/scripts/cn_calendar.py`.
+Run `python3 ~/.openclaw/workspace/myth-skills/skills/project-stash/scripts/cn_calendar.py`. Use the `time_cst` value from this script's JSON output as the absolute current time for the rest of your session.
 
 Output from the JSON result:
 - Current CST date, time, and weekday
@@ -17,24 +17,35 @@ Output from the JSON result:
 
 Add a brief greeting appropriate to the day.
 
-## 2. Projects
+## 2. Objectives & Projects
 
-List each active project from `PROJECTS.md` with a 1-line progress summary.
+First, list the Active Objectives (e.g., `[O1] Name`). Then, list each active project from `PROJECTS.md`.
 
-Then output a **Priority Stack** table immediately after. Format: one project per row, sorted by urgency descending. Columns: Priority (emoji), Project (name), Action Required (1-line next action). Always include every active + watching item. Do not omit any project — if it has a status of "pending human review," "team blocker," or has a hard deadline, it must appear in the table.
+**Crucial Formatting Rule for Projects & Tasks:**
+Each line is either a Project or a Task.
+- For Project:
+`{num} {name} {obj_tag}: one sentence description`
+- For Task:
+`{num.num} {name}: one sentence description`
+
+Then output a **Priority Stack** list immediately after (DO NOT USE MARKDOWN TABLES). Format as a bulleted list, sorted by urgency descending. List **3 items max**, with a brief one sentence priority note. Each bullet must follow this format: `- [Priority Emoji] **Project Name** [Objective Tie-in]: [1-sentence priority note]`.
 
 ## 3. Momentum Check
 
 Compare current `PROJECTS.md` with the **3 newest snapshots** in `~/.openclaw/workspace/vault/myth-projects-stash/daily-snapshots/`. Also check recent entries in `~/.openclaw/workspace/vault/myth-projects-stash/completed/` for recently finished work.
 
+**Format Constraint:** Maximum ONE paragraph.
+**Style:** A quick "vibe check" level analysis followed by a single punchy summary sentence.
+
 Analyze:
-- **Velocity** -- are projects moving forward? Any recently completed?
-- **Focus vs. scatter** -- concentrated effort or spread thin?
-- **Execution rhythm** -- consistent daily progress or bursts and stalls?
+- **Velocity & Rhythm:** Are things actually moving, or just stalling?
+- **Focus:** Concentrated effort or spread too thin?
+
+**DO NOT** list all projects or recount the past few days day-by-day. Keep it high-level, sharp, and strictly a vibe check. Name drop projects only if they are the primary bottleneck or driver of current momentum.
 
 ## 4. Pep Talk
 
-Deliver a brief pep talk.
+Deliver a 2 to 3 sentence pep talk that directly addresses the Operator.
 
 ## 5. Ask for Updates
 

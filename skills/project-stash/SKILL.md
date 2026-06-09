@@ -14,15 +14,25 @@ Manage the operator's active projects board, take daily snapshots, archive compl
 
 ## Common Operations
 
-### Complete a Project
+### Complete a Task or Project
 
 1. Create an archive file in the completed vault with a brief summary of the work done.
-2. File naming: `{YYYY-MM-DD}_{Project_Name}.md` (spaces → underscores, date in CST).
-3. Remove the project entry from `PROJECTS.md`.
+2. File naming: `{YYYY-MM-DD}_{Task_Name}.md` (spaces → underscores, date in CST).
+3. **DELETE the entry from `PROJECTS.md` entirely.** Do not list completed items on the board. On project / task completion, record them to archive and then completely remove them from the board.
+**Note on 2-Level Structure:** The project stash is exactly 2 levels deep (Project and Tasks). Each Task gets treated as its own item. Finishing a Task should be archived individually as above. Finishing a Project archives the whole thing as one file.
 
 ### Add / Update a Project
 
-Edit `PROJECTS.md` directly. Follow the format in [assets/PROJECTS_TEMPLATE.md](assets/PROJECTS_TEMPLATE.md).
+Edit `PROJECTS.md` directly. Follow the format in [assets/PROJECTS_TEMPLATE.md](assets/PROJECTS_TEMPLATE.md). Every project must carry an `Objective Tie-in` tag linking it to an Active Objective.
+
+### Objective Management
+
+Objectives map the high-level intent of the operator's current sprint.
+1. **Max 3 Items:** No more than 3 active objectives at any given time.
+2. **Immutable Begin Time:** Start dates/times cannot be changed once logged.
+3. **Archive on Finish:** Completed items must be permanently archived to the vault.
+4. **Mutable Content & Title:** Details and naming can evolve, but the core objective slot remains.
+5. **Objective Tie-in:** Projects must tie-in to one or multiple objectives in the format of `[O{n}]`. When an objective is moved off the board, related tie-ins must be removed from the active projects.
 
 ### Reviews (Ticklers)
 
