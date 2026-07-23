@@ -24,6 +24,12 @@
 
 ---
 
+## Wait List ⏳
+*Tracking external dependencies and delegated tasks.*
+- **[Waiting on: Name]** Task description. (Action: Remind/Follow-up trigger)
+
+---
+
 ## Completed Projects
 
 *Archived to vault:* `vault/myth-projects-stash/completed/`

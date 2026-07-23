@@ -39,6 +39,14 @@ Objectives map the high-level intent of the operator's current sprint.
 Code reviews, PRDs, and minor check-ins go into a dedicated `## Reviews (Scheduled Ticklers)` section on `PROJECTS.md`.
 **Rule:** Review items stay EXACTLY one line per item, with a scheduled time (e.g., "[Tomorrow morning] Trading Bot PRD Review"). Do not let them clutter the main active projects. They should be handled in batches so they do not break the main flow.
 
+### The Wait List (Managerial Workflow)
+
+Tracks tasks, decisions, and deliverables currently blocked by or delegated to external collaborators.
+1. **Purpose:** Maintain strict accountability without cluttering active project execution. 
+2. **Mandatory Format:** Every item MUST explicitly state the **Blocker (Who)**, the **Deliverable (What)**, and an optional **Tickler/Follow-up trigger (When to remind)**.
+3. **Board Placement:** The `## Wait List ⏳` section sits directly below `## Active Projects` in `PROJECTS.md`.
+4. **Lifecycle:** During daily/weekly reviews, these items are scanned. If overdue, prompt the Operator to send a ping. Once unblocked, the item is either completed, moved back to Active Projects, or discarded.
+
 ### Report Status
 
 Read `PROJECTS.md` and summarize active projects. No snapshots, no backups -- read-only.
