@@ -17,9 +17,9 @@ Synthesize the raw findings from Stage 1 (Breadth) and Stage 2 (Depth) into a po
      - *Constraint:* MUST be a simple, one-sentence summary of today's macro environment, market heat, and concentration. No fluff.
 
    - **2. 最大的事 (The Biggest Thing):**
-     - Synthesize the single biggest narrative (Stage 1) with its deep institutional logic (Stage 2).
+     - Synthesize the single biggest narrative (Stage 1) with its underlying causal framework (Stage 2).
      - *Required Sub-bullets:*
-       - **背景与逻辑 (Background & Core Logic):** What is the event, what is the formed/emerging trend, and what is the contrarian/hidden causal framework? **You MUST explicitly cite your sources here (e.g., "根据广发证券刘晨明的研报..." or "[Source: 36kr]"). Do not present the analysis as your own omniscient view.** If no deep logic was found in Stage 2, explicitly state that.
+       - **背景与逻辑 (Background & Core Logic):** What is the event, what is the formed/emerging trend, and what is the contrarian/hidden causal framework? **You MUST explicitly cite your sources here (e.g., "根据广发证券刘晨明的分析..." or "[Source: Altstreet ROI Model]"). Do not present the analysis as your own omniscient view.** If no deep analytical framework was found in Stage 2, explicitly state that.
        - **证实与证伪指标 (Core Proxy):** Explicitly list the hard data points, metrics, or events that will prove or disprove the logic. Tell the investor exactly what to watch.
        - **评分 (Score):** Output the Capital Potential score and the Game Stage score evaluated during Stage 1.
 

@@ -7,7 +7,7 @@ Take the hottest themes and events identified in Stage 1 and search for top-tier
 
 1. **Contrarian & Deep Search:**
    - AI training data defaults to retail thinking. Actively search for outlier, contrarian, and high-depth analyses to separate your findings from common retail noise.
-   - Query specifically for deep-dive reports or contrarian takes on the themes found in Stage 1 (e.g., `"[Theme] 深度 研报"`, `"[Theme] 核心矛盾"`, `"[Theme] 证伪"`). Look for how *top-tier analysts* view the events.
+   - Query specifically for deep-dive takes on the themes found in Stage 1 (e.g., `"[Theme] 深度 逻辑"`, `"[Theme] 核心矛盾"`, `"[Theme] 证伪"`). Look for rigorous analytical frameworks. **"Depth" is not strictly about "institutions"; it is about finding frameworks that are fact-based, corroborated, grounded in underlying financial logic, and ahead of shallow market consensus.**
 
 2. **Extract the Core Logic:**
    - Identify the causal frameworks and hidden logic. 
@@ -20,8 +20,8 @@ Take the hottest themes and events identified in Stage 1 and search for top-tier
    - This proxy must possess the "hardness" to either **confirm** or **falsify** the narrative.
 
 4. **Enforce Grounding & Attribution (CRITICAL):**
-   - If you found specific institutional frameworks (e.g., from a named broker, analyst, or report), explicitly record **who** said it and what their core argument is.
-   - If the search yields no deep institutional logic and only generic news/retail opinions, you MUST explicitly declare: "No institutional depth found for this theme." Do not hallucinate, synthesize, or fabricate depth.
+   - If you found specific analytical frameworks (e.g., from a named analyst, quantitative blog, or deep-dive article that aligns with financial first-principles), explicitly record **who** said it and what their core argument is.
+   - If the search yields no deep, evidence-backed frameworks and only generic news/retail opinions, you MUST explicitly declare: "No deep analytical framework found for this theme." Do not hallucinate, synthesize, or fabricate depth.
 
 ## Output for Stage 2
 Compile the core logic, contrarian views, and explicit Core Proxies. Use this internally to feed into Stage 3.
