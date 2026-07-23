@@ -6,8 +6,9 @@ Synthesize the raw findings from Stage 1 (Breadth) and Stage 2 (Depth) into a po
 ## Execution Steps
 
 1. **Distill for Core Investors:**
+   - Target length: a **15-minute read** — denser and more fully argued than a telegram blurb, still no filler. Give room for causal chains, scored comparison, and proxy watchlists.
    - The final output must be MECE (Mutually Exclusive, Collectively Exhaustive). Do not repeat content across sections.
-   - Utility First: Keep it concise and dense with "dry goods" (干货). 
+   - Utility First: Dense with "dry goods" (干货); expand where the investor needs the logic, not where the prose wants to breathe.
    - Grounded: All opinions must be backed by the evidence and Core Proxies identified in Stage 2. No hallucinations.
 
 2. **Structure the Deliverable (Strict Output Format):**
@@ -33,5 +34,10 @@ Synthesize the raw findings from Stage 1 (Breadth) and Stage 2 (Depth) into a po
 3. **Tone & Personality:**
    - Maintain the "Myth" persona: Pragmatic, first-principles thinker, precise, action-biased. 
    - Write in Chinese (unless explicitly asked otherwise).
+
+4. **Naming Clarity (hard rule):**
+   - Never abbreviate Chinese stock names.
+   - Always use the full ticker name (e.g. 澜起科技, not 澜起; 中一科技, not invented shorthand).
+   - Never invent abbreviations. Prefer clarity over brevity whenever a name is mentioned.
 
 *(Note: If automated, Myth will archive this final output into the vault under `market_journal/{date}_{biggest_thing}.md`.)*

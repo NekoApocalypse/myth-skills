@@ -20,7 +20,7 @@ Move beyond retail thinking ("leek logic"). Dig into top-tier, contrarian resear
 **Action:** Once Stage 1 is complete, read [references/stage2_depth.md](references/stage2_depth.md) and execute its instructions.
 
 ### Stage 3: Final Distillation (The Deliverable)
-Synthesize the findings from Stages 1 and 2 into a high-signal, 5-minute read designed for core investors. 
+Synthesize the findings from Stages 1 and 2 into a high-signal, 15-minute read designed for core investors. 
 **Action:** Once Stage 2 is complete, read [references/stage3_distill.md](references/stage3_distill.md) and generate the final output.
 
 ## Operational Rules
