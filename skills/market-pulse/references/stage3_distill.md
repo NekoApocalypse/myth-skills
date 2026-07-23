@@ -19,13 +19,13 @@ Synthesize the raw findings from Stage 1 (Breadth) and Stage 2 (Depth) into a po
    - **2. 最大的事 (The Biggest Thing):**
      - Synthesize the single biggest narrative (Stage 1) with its deep institutional logic (Stage 2).
      - *Required Sub-bullets:*
-       - **背景与逻辑 (Background & Core Logic):** What is the event, what is the formed/emerging trend, and what is the contrarian/hidden causal framework?
+       - **背景与逻辑 (Background & Core Logic):** What is the event, what is the formed/emerging trend, and what is the contrarian/hidden causal framework? **You MUST explicitly cite your sources here (e.g., "根据广发证券刘晨明的研报..." or "[Source: 36kr]"). Do not present the analysis as your own omniscient view.** If no deep logic was found in Stage 2, explicitly state that.
        - **证实与证伪指标 (Core Proxy):** Explicitly list the hard data points, metrics, or events that will prove or disprove the logic. Tell the investor exactly what to watch.
        - **评分 (Score):** Output the Capital Potential score and the Game Stage score evaluated during Stage 1.
 
    - **3. 反应不足的事 (Under-reacted Opportunities):**
      - Synthesize the hidden gems or early-stage catalysts that the market hasn't fully priced in yet.
-     - *Required Sub-bullets:* Same as above (Background & Core Logic, Core Proxy, Score).
+     - *Required Sub-bullets:* Same as above (Background & Core Logic with explicit citations, Core Proxy, Score).
 
    - **4. 风险与不确定性 (Risks & Volatility):**
      - Map out the primary downside risks and sources of volatility. Ensure this doesn't redundantly repeat the "Core Proxy falsification" logic, but rather points out structural risks, macro headwinds, or overall market uncertainty.

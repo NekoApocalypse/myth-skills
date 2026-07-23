@@ -19,5 +19,9 @@ Take the hottest themes and events identified in Stage 1 and search for top-tier
    - This must be a specific, observable fact, metric, or data point (e.g., a specific commodity price spread, a high-frequency supply chain metric, a specific policy wording).
    - This proxy must possess the "hardness" to either **confirm** or **falsify** the narrative.
 
+4. **Enforce Grounding & Attribution (CRITICAL):**
+   - If you found specific institutional frameworks (e.g., from a named broker, analyst, or report), explicitly record **who** said it and what their core argument is.
+   - If the search yields no deep institutional logic and only generic news/retail opinions, you MUST explicitly declare: "No institutional depth found for this theme." Do not hallucinate, synthesize, or fabricate depth.
+
 ## Output for Stage 2
 Compile the core logic, contrarian views, and explicit Core Proxies. Use this internally to feed into Stage 3.
