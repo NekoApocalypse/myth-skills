@@ -21,9 +21,9 @@ Identify the broad market consensus, market temperature, and the overarching nar
    - Outside of the "Biggest Thing," what else is noteworthy but under-reacted to by the market?
 
 ## Search Strategy (Breadth)
-- Use `web_search` with `freshness="day"` or explicitly include today's date to get closing summaries (e.g., "A股 收评", "A股 复盘", "资金流").
-- Filter out morning news that actually recaps yesterday's market.
-- Identify the *actual events* driving price action, not just the price action itself.
+- **Strict Time Limits:** Use `web_search` with `freshness="day"` or explicitly include today's date to get closing summaries (e.g., "A股 收评", "A股 复盘", "资金流"). Physically eliminate old news.
+- **Timestamp Verification:** Even with `freshness` enabled, internally check the exact publication time of the events. Discard news from the morning that actually recaps *yesterday's* market.
+- **Focus:** The recap provides the baseline, but true alpha comes from discovering the latest catalysts, rumors, and resonances.
 
 ## Output for Stage 1
 Compile the answers to the above points. Do not present this directly to the user as the final deliverable; hold it in your `<think>` block or output it as a raw intermediate summary to transition into Stage 2.
