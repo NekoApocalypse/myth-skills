@@ -40,7 +40,7 @@ Strict additive upgrade over v1.0. Keep the full v1 task structure, search rules
 对每个主题，严格按下列三行输出（不要写成散文）：
 - **Topic:** 一句话点名主题 / 标的池（说清楚在看什么）
 - **Dynamics:** 主导博弈与定价机制——资金在赌什么、预期差在哪、传导链怎么走（how to look at it）
-- **Proxy:** 1~3 个可观察、可复查的前向监控指标（价格 / 价差 / 成交额 / 持仓 / 政策节点 / 产业链数据等；what to monitor next）
+- **Proxy:** 1~3 个可观察、可复查的前向监控指标（产业链数据 / 政策节点 / 持仓 / 成交额 / 价差 / 价格等；what to monitor next）
 
 ### Falsify Conditions
 紧接每个 Decision Lens 之后，列出 1~3 条**可观察的证伪条件**（不要写空泛风险提示）：
