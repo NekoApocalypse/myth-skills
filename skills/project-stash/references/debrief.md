@@ -21,12 +21,16 @@ Add a brief greeting appropriate to the day.
 
 First, list the Active Objectives (e.g., `[O1] Name`). Then, list each active project from `PROJECTS.md`.
 
+**Board order is law.** Emit projects in the exact order they appear on `PROJECTS.md` (1, 2, 3...). Do not reorder by urgency, status emoji, or "what matters today." Urgency ranking belongs only in Priority Stack.
+
 **Crucial Formatting Rule for Projects & Tasks:**
 Each line is either a Project or a Task.
 - For Project:
 `{num} {name} {obj_tag}: one sentence description`
 - For Task:
 `{num.num} {name}: one sentence description`
+
+**Spacing:** Put a blank line between top-level projects so the list breathes. Keep each project's tasks immediately under it with no blank lines between tasks. Sub-item numbers must match the board exactly.
 
 Then output a **Priority Stack** list immediately after (DO NOT USE MARKDOWN TABLES). Format as a bulleted list, sorted by urgency descending. List **3 items max**, with a brief one sentence priority note. Each bullet must follow this format: `- [Priority Emoji] **Project Name** [Objective Tie-in]: [1-sentence priority note]`.
 
@@ -66,5 +70,5 @@ Confirm the snapshot was saved.
 
 - The reply **IS** the debrief -- output the full text directly.
 - Do not summarize. Do not output a file path.
-- Format for discord: No empty lines
+- Format for discord: keep it dense; the only intentional blank lines are between top-level projects in Section 2.
 - The reply will be delivered directly to the channel.
