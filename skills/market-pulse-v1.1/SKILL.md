@@ -34,12 +34,13 @@ Strict additive upgrade over v1.0. Keep the full v1 task structure, search rules
 4. 市场的机会 (Upside) 在哪里？风险（Downside）在哪里？不确定性（Volatility） 在哪里？
 
 5. **Decision Lens + Falsify Conditions（强制收尾，不可省略）**
-从任务 2 / 3 中选出今天最值得跟踪的 1~3 个主题（优先「最大的事」+ 最多 1~2 个反应不足的机会），每个主题用固定三元组 + 证伪条件收尾：
+从任务 2 / 3 中选出今天最值得跟踪的 1~3 个主题（优先「最大的事」+ 最多 1~2 个反应不足的机会），每个主题用固定四元组 + 证伪条件收尾：
 
 ### Decision Lens
-对每个主题，严格按下列三行输出（不要写成散文）：
+对每个主题，严格按下列四行输出（不要写成散文）：
 - **Topic:** 一句话点名主题 / 标的池（说清楚在看什么）
 - **Dynamics:** 主导博弈与定价机制——资金在赌什么、预期差在哪、传导链怎么走（how to look at it）
+- **Core Asset:** 这条主题真正定价的核心标的（全称 + 代码）。行业 beta 写板块核，个股 alpha 写那只票。一题一个核，不要写成篮子。
 - **Proxy:** 1~3 个可观察、可复查的前向监控指标（产业链数据 / 政策节点 / 持仓 / 成交额 / 价差 / 价格等；what to monitor next）
 
 ### Falsify Conditions
@@ -89,7 +90,7 @@ Strict additive upgrade over v1.0. Keep the full v1 task structure, search rules
 7.1. 资金盘的潜力: 5: 全盘狂欢 4: 行业共振 3: 大象起舞 2: 中市值妖股制造机 1: 市场边角料
 7.2. 博弈阶段: +1 左侧布局，早鸟票; +0 趋势刚启动，还不晚; -1 已经拥挤，红海博弈
 
-8. 收尾强制：Decision Lens（Topic / Dynamics / Proxy）+ Falsify Conditions。这是 v1.1 相对 v1.0 的唯一结构性增量；缺这一段 = 交付不合格。
+8. 收尾强制：Decision Lens（Topic / Dynamics / Core Asset / Proxy）+ Falsify Conditions。这是 v1.1 相对 v1.0 的唯一结构性增量；缺这一段 = 交付不合格。
 
 ## Reference: 投资逻辑
 
@@ -112,7 +113,7 @@ Strict additive upgrade over v1.0. Keep the full v1 task structure, search rules
 
 4. 对交易有用：这个任务的核心定位是寻找交易机会，从鱼最多的池塘里钓鱼，辅助交易决策
 
-5. Decision Lens 的用途：把「今天发生了什么」收成「之后怎么看、看什么、什么时候认错」。Proxy 必须可复查；Falsify 必须能打脸。
+5. Decision Lens 的用途：把「今天发生了什么」收成「之后怎么看、看什么、盯哪只核、什么时候认错」。Core Asset 必须是能定价这条主题的那一只，不是主题篮子。Proxy 必须可复查；Falsify 必须能打脸。
 
 ## 一些反例
 
