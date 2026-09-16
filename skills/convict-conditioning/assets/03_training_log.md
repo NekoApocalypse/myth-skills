@@ -5,7 +5,7 @@ Append new sessions chronologically. Do not rewrite previous entries.
 ## Entry template
 
 ```markdown
-### YYYY-MM-DD — Monday
+### YYYY-MM-DD — Wednesday
 
 - Pushups 5 — 2x10
 - Leg Raises 5 — 2x10
@@ -49,6 +49,6 @@ If sets differ, record them explicitly:
 
 If a progression occurs, make it explicit:
 
-- `Status changes: Pushups 5 -> 6 next Monday`
+- `Status changes: Pushups 5 -> 6 next Wednesday`
 
 ## Sessions

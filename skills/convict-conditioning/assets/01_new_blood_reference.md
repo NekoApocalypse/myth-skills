@@ -4,9 +4,9 @@
 
 | Day | Training | Volume |
 |---|---|---|
-| Monday | Pushups + Leg Raises | 2–3 work sets per chain |
+| Wednesday | Pushups + Leg Raises | 2–3 work sets per chain |
 | Tuesday | Rest | — |
-| Wednesday | Rest | — |
+| Monday | Rest | — |
 | Thursday | Rest | — |
 | Friday | Pullups + Squats | 2–3 work sets per chain |
 | Saturday | Rest | — |

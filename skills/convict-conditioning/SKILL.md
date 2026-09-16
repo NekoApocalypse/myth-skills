@@ -34,7 +34,7 @@ Each chain section stores: step, volume tier, the three standards, ready-to-prog
 
 ## Daily reminder
 
-Standard week is 2 sessions. Appointed days: Monday (Pushups + Leg Raises) and Friday (Pullups + Squats). A missed appointed day can be made up later the same CST week (Mon–Sun).
+Standard week is 2 sessions. Appointed days: Wednesday (Pushups + Leg Raises) and Friday (Pullups + Squats). A missed appointed day can be made up later the same CST week (Mon–Sun).
 
 When running the daily reminder, read the live log for this CST week and report:
 
