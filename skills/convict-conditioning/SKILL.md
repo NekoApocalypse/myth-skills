@@ -34,6 +34,8 @@ Each chain section stores: step, volume tier, the three standards, ready-to-prog
 
 ## Daily reminder
 
+The reminder cron fires **every day**, including rest days. Do not skip a rest-day ping.
+
 Standard week is 2 sessions. Appointed days: Wednesday (Pushups + Leg Raises) and Friday (Pullups + Squats). A missed appointed day can be made up later the same CST week (Mon–Sun).
 
 When running the daily reminder, read the live log for this CST week and report:
@@ -43,7 +45,7 @@ When running the daily reminder, read the live log for this CST week and report:
 - Remaining chains not yet trained this week
 - Schedule: today's appointed session, a makeup if an appointed day was missed, or rest
 
-Keep it short. No tables.
+On a rest day, say it is rest and still report weekly progress. Keep it short. No tables.
 
 ## Status and progression
 
@@ -68,4 +70,4 @@ Append a new dated entry. Do not rewrite old entries. Compare each chain's work 
 
 ## Cron
 
-A daily isolated job should fire this reminder into #myth-coach. Keep the cron prompt skill-driven: `Run the convict-conditioning skill daily reminder.`
+A daily isolated job fires this reminder into #myth-coach every day at 18:00 CST, including rest days. Keep the cron prompt skill-driven: `Run the convict-conditioning skill daily reminder.`
