@@ -17,10 +17,20 @@ Live files are authoritative. Read them on every status, log, progression, or re
 Skill assets are bootstrap and reference only:
 
 - `assets/01_new_blood_reference.md` — schedule, ladders, progression rules
-- `assets/02_current_status.md` — initial snapshot
+- `assets/02_current_status.md` — status schema snapshot
 - `assets/03_training_log.md` — log template
 
 Copy assets into the live paths only when those live files are missing. Leave existing live files alone.
+
+## Status schema
+
+Live status tracks **Chain → Step → Volume tier**.
+
+- Chain: Pushups, Pullups, Squats, Leg Raises
+- Step: step number + exercise name
+- Volume tier: `beginner` | `intermediate` | `progression` on that step (sets/reps only; same exercise)
+
+Each chain section stores: step, volume tier, the three standards, ready-to-progress (step), and a note.
 
 ## Daily reminder
 
@@ -37,21 +47,24 @@ Keep it short. No tables.
 
 ## Status and progression
 
-On status or next-step questions, read live status plus the matching ladder in the New Blood reference. Report the current step, exercise, target, ready flag, and the next-step goalpost (exercise + target). If the chain is at the last tabulated step, say so.
+On status or next-step questions, read live status plus the matching ladder in the New Blood reference. Report chain, step, volume tier, the three standards, the current-tier target, ready flag, and the next-step goalpost. If the chain is at the last tabulated step, say so.
 
-On an explicit request to progress a named chain:
+On an explicit request to set a volume tier: update that field only. Do not change the step.
+
+On an explicit request to progress a named chain (step-up):
 
 1. Advance that chain one step in the live status file
-2. Set exercise and target from the ladder
-3. Reset ready-to-progress
-4. Append a progression-history row
-5. Mention the new goalpost
+2. Set exercise and the three standards from the ladder
+3. Reset volume tier to beginner unless the operator specifies a tier
+4. Reset ready-to-progress
+5. Append a progression-history row
+6. Mention the new step and volume-tier goalpost
 
-Advance a step only on that explicit request, or when the reference rule says the next scheduled session should move up after a ready-to-progress mark. Feeling easy is not enough.
+Advance a step only on that explicit request, or when the reference rule says the next scheduled session should move up after a ready-to-progress mark. Feeling easy is not enough. Hitting beginner or intermediate is not a step-up.
 
 ## Session log
 
-Append a new dated entry. Do not rewrite old entries. Compare each chain's work sets to its current target with the evaluation rule in the New Blood reference. Update ready-to-progress in live status. Record the assessment in the log.
+Append a new dated entry. Do not rewrite old entries. Compare each chain's work sets to the **current volume-tier** standard. Update ready-to-progress only when the **progression** standard is met with clean form. Record the assessment in the log.
 
 ## Cron
 
