@@ -1,18 +1,13 @@
 # Convict Conditioning — New Blood Reference
 
-## Weekly schedule
+## Weekly 2-Box Quota (Flexible Schedule, Mon–Sun CST)
 
-| Day | Training | Volume |
-|---|---|---|
-| Wednesday | Pushups + Leg Raises | 2–3 work sets per chain |
-| Tuesday | Rest | — |
-| Monday | Rest | — |
-| Thursday | Rest | — |
-| Friday | Pullups + Squats | 2–3 work sets per chain |
-| Saturday | Rest | — |
-| Sunday | Rest | — |
+| Weekly Checkbox | Chains Trained | Volume | When |
+|---|---|---|---|
+| **Box A** | `Pushups + Leg Raises` | 2–3 work sets per chain | Any day of the week (`Mon–Sun`) |
+| **Box B** | `Pullups + Squats` | 2–3 work sets per chain | Any day of the week (`Mon–Sun`) |
 
-New Blood uses only the four basic chains. Bridges and handstand pushups are held back until later.
+New Blood uses only the four basic chains across **2 checkboxes per ISO week** (`Box A` and `Box B` in any order). Bridges and handstand pushups are held back until later.
 
 ## Progression ladders
 

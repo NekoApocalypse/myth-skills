@@ -8,27 +8,73 @@ from datetime import datetime, date, timedelta
 from typing import Any
 from zoneinfo import ZoneInfo, ZoneInfoNotFoundError
 
+def _resolve_workspace_dir() -> str:
+    env_ws = os.environ.get("OPENCLAW_WORKSPACE")
+    if env_ws and os.path.isdir(env_ws):
+        return os.path.abspath(env_ws)
+    for candidate in (
+        "/home/node/.openclaw/workspace",
+        os.path.expanduser("~/.openclaw/workspace"),
+        os.path.abspath(os.path.join(os.path.dirname(os.path.realpath(__file__)), "..", "..", "..", "..")),
+        os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..", "..", "..")),
+    ):
+        if os.path.isdir(candidate) and (
+            os.path.exists(os.path.join(candidate, "PROJECTS.md"))
+            or os.path.exists(os.path.join(candidate, "local_secrets.md"))
+            or os.path.isdir(os.path.join(candidate, "health_stats"))
+        ):
+            return candidate
+    return os.path.abspath(os.path.join(os.path.dirname(os.path.realpath(__file__)), "..", "..", "..", ".."))
+
+
+WORKSPACE_DIR = _resolve_workspace_dir()
+
 try:
     from garminconnect import Garmin
 except ModuleNotFoundError:
     import sys
-    venv_python = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..", "..", "..", ".venv", "bin", "python"))
-    if os.path.exists(venv_python) and os.path.abspath(sys.executable) != venv_python:
-        os.execv(venv_python, [venv_python, *sys.argv])
+    for venv_candidate in (
+        os.path.join(WORKSPACE_DIR, ".venv", "bin", "python"),
+        "/home/node/.openclaw/workspace/.venv/bin/python",
+        os.path.expanduser("~/.openclaw/workspace/.venv/bin/python"),
+    ):
+        if os.path.exists(venv_candidate) and os.path.abspath(sys.executable) != os.path.abspath(venv_candidate):
+            os.execv(venv_candidate, [venv_candidate, *sys.argv])
     raise
 
 import logging
 logging.getLogger("garminconnect.client").setLevel(logging.ERROR)
 
 DEFAULT_TIMEZONE = "Asia/Shanghai"
-WORKSPACE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..", "..", ".."))
 HEALTH_DIR = os.path.join(WORKSPACE_DIR, "health_stats")
 RAW_DIR = os.path.join(HEALTH_DIR, "raw")
 
+
+def _load_from_local_secrets(name: str) -> str | None:
+    secrets_path = os.path.join(WORKSPACE_DIR, "local_secrets.md")
+    if not os.path.isfile(secrets_path):
+        return None
+    try:
+        content = open(secrets_path, "r", encoding="utf-8").read()
+    except OSError:
+        return None
+    # Match `export NAME="val"`, `NAME=val`, `**NAME**: \`val\``, or `NAME: val`
+    patterns = [
+        rf"(?:^|\n)\s*(?:export\s+)?{re.escape(name)}\s*=\s*['\"`]?([^'\"`\s\n]+)['\"`]?",
+        rf"(?:^|\n)[^\n]*?\b{re.escape(name)}\b[^\n:=]*[:=]\s*`([^`\n]+)`",
+        rf"(?:^|\n)[^\n]*?\b{re.escape(name)}\b[^\n:=]*[:=]\s*['\"]?([^'\"\s\n]+)['\"]?",
+    ]
+    for pat in patterns:
+        m = re.search(pat, content)
+        if m and m.group(1).strip():
+            return m.group(1).strip()
+    return None
+
+
 def required_env(name: str) -> str:
-    value = os.environ.get(name)
+    value = os.environ.get(name) or _load_from_local_secrets(name)
     if not value:
-        raise SystemExit(f"Missing required environment variable: {name}")
+        raise SystemExit(f"Missing required environment variable: {name} (not in env or {os.path.join(WORKSPACE_DIR, 'local_secrets.md')})")
     return value
 
 def iso_week_filename(d: date) -> str:
