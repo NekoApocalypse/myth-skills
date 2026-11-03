@@ -1,1 +1,3 @@
 skills/ai-digest
+__pycache__/
+*.py[cod]
