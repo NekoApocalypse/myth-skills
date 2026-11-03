@@ -58,16 +58,21 @@ def _load_from_local_secrets(name: str) -> str | None:
         content = open(secrets_path, "r", encoding="utf-8").read()
     except OSError:
         return None
-    # Match `export NAME="val"`, `NAME=val`, `**NAME**: \`val\``, or `NAME: val`
-    patterns = [
-        rf"(?:^|\n)\s*(?:export\s+)?{re.escape(name)}\s*=\s*['\"`]?([^'\"`\s\n]+)['\"`]?",
-        rf"(?:^|\n)[^\n]*?\b{re.escape(name)}\b[^\n:=]*[:=]\s*`([^`\n]+)`",
-        rf"(?:^|\n)[^\n]*?\b{re.escape(name)}\b[^\n:=]*[:=]\s*['\"]?([^'\"\s\n]+)['\"]?",
-    ]
-    for pat in patterns:
-        m = re.search(pat, content)
-        if m and m.group(1).strip():
-            return m.group(1).strip()
+    alias_keys = [name]
+    if name == "GARMIN_EMAIL":
+        alias_keys.append("Account")
+    elif name == "GARMIN_PASSWORD":
+        alias_keys.append("Password")
+    for key in alias_keys:
+        patterns = [
+            rf"(?:^|\n)\s*(?:export\s+)?{re.escape(key)}\s*=\s*['\"`]?([^'\"`\s\n]+)['\"`]?",
+            rf"(?:^|\n)[^\n]*?\b{re.escape(key)}\b[^\n:=]*[:=]\s*`([^`\n]+)`",
+            rf"(?:^|\n)[^\n]*?\b{re.escape(key)}\b[^\n:=]*[:=]\s*['\"]?([^'\"\s\n]+)['\"]?",
+        ]
+        for pat in patterns:
+            m = re.search(pat, content)
+            if m and m.group(1).strip():
+                return m.group(1).strip()
     return None
 
 

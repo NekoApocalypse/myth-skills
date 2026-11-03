@@ -17,7 +17,12 @@ Maintain an up-to-date weekly ledger (`health_stats/YYYY-Wxx.md`) of the Operato
    ```bash
    python3 ~/.openclaw/workspace/myth-skills/skills/health-tracker/scripts/update_health.py
    ```
-   - Automatically locates `~/.openclaw/workspace/.venv/bin/python` and falls back to reading `GARMIN_EMAIL` and `GARMIN_PASSWORD` from `~/.openclaw/workspace/local_secrets.md` if environment variables are not pre-exported.
+   - Automatically locates `~/.openclaw/workspace/.venv/bin/python` and falls back to reading `GARMIN_EMAIL` / `GARMIN_PASSWORD` (or legacy `**Account:**` / `**Password:**` prose entries) from `~/.openclaw/workspace/local_secrets.md` if environment variables are not pre-exported:
+     ```markdown
+     ## Garmin Connect (read by health-tracker/update_health.py)
+     GARMIN_EMAIL=your_email@example.com
+     GARMIN_PASSWORD=your_password
+     ```
 2. **Output Files**:
    - **Weekly Markdown Ledger**: `~/.openclaw/workspace/health_stats/YYYY-Wxx.md` (ISO week, e.g., `2026-W45.md`).
    - **Raw Garmin JSON Cache**: `~/.openclaw/workspace/health_stats/raw/garmin-YYYY-MM-DD.json`.
