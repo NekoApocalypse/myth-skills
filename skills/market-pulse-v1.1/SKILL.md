@@ -2,6 +2,17 @@
 
 Strict additive upgrade over v1.0. Keep the full v1 task structure, search rules, writing style, and investment logic. The only mandatory addition is the closing **Decision Lens + Falsify Conditions** block (task 5).
 
+## 交付闸门（硬约束）
+
+全有或全无。只发布完整合格的稿子。
+
+- 以下任一情况成立，本轮**不交付**，以明确错误结束：
+  - 取数失败，或关键数字缺失 / 无法核实
+  - 缺少任一 v1.1 章节、缺少 资金盘/博弈阶段 评分、缺少 Decision Lens + Falsify Conditions
+  - 润色（llm-task）失败或返回空 / 非法 JSON
+- 降级稿、占位稿、状态说明、『某些数据不可用』的补丁一律不发到频道。宁可让 cron 记为失败，也不要发一篇残缺的脉搏。
+- 不要为了「有输出」而拼凑。
+
 ## 注意事项
 
 1. 开始前先用命令行获取当前日期 (UTC+8)
@@ -55,6 +66,15 @@ Strict additive upgrade over v1.0. Keep the full v1 task structure, search rules
 - 与前文评分（资金盘 x/5、博弈阶段）保持一致，不要另起一套互相打架的结论
 
 ## Reference: 搜索方式
+
+0. **取数走脚本，不要手写 inline python**
+0.1. 行情与快讯统一用已入库的脚本：
+   - `python3 /home/node/.openclaw/workspace/scripts/market_pulse_fetch.py quotes` — 主要宽基指数 + 关键 ETF（腾讯行情，字段：name/price/change/change_pct/high/low/amount）
+   - `python3 .../market_pulse_fetch.py quotes sh000001 sz399006 ...` — 指定代码
+   - `python3 .../market_pulse_fetch.py news "关键词" 8` — 东方财富快讯检索（返回 date/source/title/summary/url）
+   - `python3 .../market_pulse_fetch.py all` — 指数 + ETF + 三组新闻一次拉完
+0.2. 原因：`python3 - <<'PY'` 这类 heredoc 依赖工具参数里换行符的精确转义，一旦被写成字面量 `\n`，脚本直接 `SyntaxError`，整篇交付会整批挂掉。脚本体是固定的，写一次就不用再赌转义。
+0.3. 脚本返回 JSON，直接读字段，不要再套一层正则清洗。脚本报错时先降级到 `web_search` / `web_fetch`，不要重写同一脚本重试。
 
 1. 使用搜索时，务必注意时效性
 1.1. 强制要求：使用 `web_search` 工具时，必须设置 `freshness="day"`（或在搜索词中强制包含当天的绝对日期），将搜索结果严格限定在过去 24 小时以内，从物理层面杜绝旧新闻干扰。
